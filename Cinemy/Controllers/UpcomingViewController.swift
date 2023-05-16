@@ -1,20 +1,18 @@
 //
-//  ViewController.swift
+//  UpcomingViewController.swift
 //  Cinemy
 //
-//  Created by Ümit Şimşek on 15.05.2023.
+//  Created by Ümit Şimşek on 16.05.2023.
 //
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class UpcomingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         view.backgroundColor = .yellow
     }
-
-
 }
-
