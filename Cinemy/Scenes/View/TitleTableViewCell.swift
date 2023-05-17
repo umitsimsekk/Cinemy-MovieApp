@@ -18,6 +18,7 @@ class TitleTableViewCell: UITableViewCell {
     
     private let titleNameLabel : UILabel = {
        let titleName = UILabel()
+        titleName.numberOfLines = 0
         titleName.translatesAutoresizingMaskIntoConstraints = false
         return titleName
     }()
@@ -62,6 +63,7 @@ extension TitleTableViewCell {
         
         let titleNameLabelConstraints = [
             titleNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -50),
             titleNameLabel.leadingAnchor.constraint(equalTo: titleImageView.trailingAnchor,constant: 10)
         ]
         

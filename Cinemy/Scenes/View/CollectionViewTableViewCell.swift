@@ -6,10 +6,14 @@
 //
 
 import UIKit
-
+protocol CollectionViewTableViewCellDelegate : AnyObject {
+    func collectionViewTableViewCellDidTapCell(_ cell :CollectionViewTableViewCell, viewModel : TitlePreviewViewModel)
+}
 class CollectionViewTableViewCell: UITableViewCell {
     
     static let identifier = "CollectionViewTableViewCell"
+    
+    weak var delegate : CollectionViewTableViewCellDelegate?
     
     var titles : Array<Title> = []
     
@@ -49,6 +53,7 @@ extension CollectionViewTableViewCell {
             self?.collectionView.reloadData()
         }
     }
+   
 }
 
 extension CollectionViewTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -63,4 +68,31 @@ extension CollectionViewTableViewCell : UICollectionViewDelegate, UICollectionVi
         cell.configureCollectionViewCell(with: titles[indexPath.row].poster_path ?? "")
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let title = titles[indexPath.row]
+        
+        guard let titleName = title.original_name ?? title.original_title else {
+            return
+        }
+        APICaller.shared.getMovie(with: titleName + " trailer") { result in
+            switch result {
+            case .success(let videoElement):
+                let title = self.titles[indexPath.row]
+                let titlePreviewModel = TitlePreviewViewModel(overview: title.overview ?? "", title: title.original_title ?? title.original_name ?? "", youtubeView: videoElement)
+                self.delegate?.collectionViewTableViewCellDidTapCell(self, viewModel: titlePreviewModel)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration{[weak self] _ in
+            let downloadAction = UIAction(title: "Download",state: .off) { _ in
+            }
+            return UIMenu(title: "",options: .displayInline,children: [downloadAction])
+        }
+        return config
+    }
+    
 }

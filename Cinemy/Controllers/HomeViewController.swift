@@ -11,7 +11,8 @@ enum Section : Int {
 }
 
 class HomeViewController: UIViewController {
-    
+    private var headerView : HeaderUIView?
+    private var randomMovie : Title?
     
     private let titleNames : Array<String> = ["Trending Movies","Trending Tvs","Popular", "Upcoming Movies", "Top Rated"]
     
@@ -29,11 +30,12 @@ class HomeViewController: UIViewController {
         view.addSubview(homeTableView)
         setTableViewDelegates()
         
-        let headerView = HeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        headerView = HeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeTableView.tableHeaderView = headerView
         
         configureNavbar()
-        
+        getData()
+                
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -41,7 +43,18 @@ class HomeViewController: UIViewController {
     }
 }
 extension HomeViewController {
-    
+    private func getData(){
+        APICaller.shared.getTrendingMovies { result in
+            switch result{
+            case.success(let title):
+                let selectedTitle = title.randomElement()
+                self.randomMovie = selectedTitle
+                self.headerView?.configureHeaderView(with: TitleViewModel(posterUrl: selectedTitle?.poster_path ?? "", titleName: selectedTitle?.original_name ?? selectedTitle?.original_title ?? ""))
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     private func setTableViewDelegates(){
         self.homeTableView.delegate = self
         self.homeTableView.dataSource = self
@@ -58,7 +71,17 @@ extension HomeViewController {
          navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
     }
 }
-
+extension HomeViewController : CollectionViewTableViewCellDelegate{
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configureTitlePreviewVC(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
+}
 extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return titleNames.count
@@ -72,6 +95,7 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        cell.delegate = self
         switch indexPath.section{
         case 0:
             APICaller.shared.getTrendingMovies { result in

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class HeaderUIView: UIView {
     private let playButton : UIButton = {
         let button = UIButton()
@@ -40,7 +40,7 @@ class HeaderUIView: UIView {
         addSubview(playButton)
         addSubview(downloadButton)
         applyConstraints()
-        //addGradient()
+        addGradient()
     }
     
     required init?(coder: NSCoder) {
@@ -53,6 +53,12 @@ class HeaderUIView: UIView {
 }
 
 extension HeaderUIView {
+    public func configureHeaderView(with model : TitleViewModel){
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterUrl)") else {
+                   return
+        }
+        headerImageView.sd_setImage(with: url)
+    }
     
     private func applyConstraints(){
         let playButtonConstraints = [
@@ -75,7 +81,7 @@ extension HeaderUIView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
         UIColor.clear.cgColor,
-        UIColor.black.cgColor
+        UIColor.systemBackground.cgColor
         ]
         gradientLayer.frame = bounds
         layer.addSublayer(gradientLayer)
