@@ -8,7 +8,7 @@ Downloads     |  Download Movie|  Movie Preview
 :-------------------------:|:-------------------------:|:-------------------------:
 <img alt="Downloads" src="Screenshot/downloads.png">|<img alt="Movie Preview" src="Screenshot/downloadmovie.png">|<img alt="Search Movies" src="Screenshot/moviepreview.png">
 
-Search Movie | |
+Search Movie
 :-------------------------:|:-------------------------:|:-------------------------:
 <img alt="Search Movie" src="Screenshot/searchmovies.png">
 
