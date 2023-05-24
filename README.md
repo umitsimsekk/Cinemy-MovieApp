@@ -2,11 +2,11 @@
 
 Home     |  Download Movie
 :-------------------------:|:-------------------------:
-<img alt="Home" src="Screenshot/home">|<img alt="Download Movie" src="Screenshot/downloadmovie">
+<img alt="Home" src="Screenshot/home.png">|<img alt="Download Movie" src="Screenshot/downloadmovie.png">
 
 Movie Preview     |  Product Details
 :-------------------------:|:-------------------------:
-<img alt="Movie Preview " src="Screenshot/moviepreview">|<img alt="Coming Soon" src="Screenshot/comingsoon">
+<img alt="Movie Preview " src="Screenshot/moviepreview.png">|<img alt="Coming Soon" src="Screenshot/comingsoon.png">
 
 ## Characteristics
 
