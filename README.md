@@ -1,16 +1,13 @@
 # Programatic - MVVM (Model View ViewModel) -  API Calls
 
-Home     |  Download Movie
+Home     |  Download Movie | Top Search
 :-------------------------:|:-------------------------:
-<img alt="Home" src="Screenshot/home.png">|<img alt="Download Movie" src="Screenshot/downloadmovie.png">
+<img alt="Home" src="Screenshot/home.png">|<img alt="Download Movie" src="Screenshot/downloadmovie.png">|<img alt="op Search" src="Screenshot/topsearch.png">
 
-Movie Preview     |  Coming Soon
+Movie Preview     |  Coming Soon |  Search Movies
 :-------------------------:|:-------------------------:
-<img alt="Movie Preview " src="Screenshot/moviepreview.png">|<img alt="Coming Soon" src="Screenshot/comingsoon.png">
+<img alt="Movie Preview " src="Screenshot/moviepreview.png">|<img alt="Coming Soon" src="Screenshot/comingsoon.png">|<img alt="Search Movies" src="Screenshot/searchmovies.png">
 
-Top Search    |  Search Movies
-:-------------------------:|:-------------------------:
-<img alt="op Search" src="Screenshot/topsearch.png">|<img alt="Search Movies" src="Screenshot/searchmovies.png">
 
 ## Characteristics
 
