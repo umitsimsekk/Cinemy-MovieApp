@@ -30,6 +30,8 @@
 		DB6F29652A13D04B00447DFA /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F29642A13D04B00447DFA /* Title.swift */; };
 		DB6F29682A13D07B00447DFA /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F29672A13D07B00447DFA /* APICaller.swift */; };
 		DB6F296A2A13D08500447DFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F29692A13D08500447DFA /* Constants.swift */; };
+		DBA9AF782A1E190700B2D859 /* CinemyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBA9AF762A1E190700B2D859 /* CinemyModel.xcdatamodeld */; };
+		DBA9AF7A2A1E1BED00B2D859 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA9AF792A1E1BED00B2D859 /* DataPersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		DB6F29642A13D04B00447DFA /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		DB6F29672A13D07B00447DFA /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		DB6F29692A13D08500447DFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DBA9AF772A1E190700B2D859 /* CinemyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CinemyModel.xcdatamodel; sourceTree = "<group>"; };
+		DBA9AF792A1E1BED00B2D859 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				DB00D1B62A1272CF006E0AE4 /* Assets.xcassets */,
 				DB00D1B82A1272CF006E0AE4 /* LaunchScreen.storyboard */,
 				DB00D1BB2A1272CF006E0AE4 /* Info.plist */,
+				DBA9AF762A1E190700B2D859 /* CinemyModel.xcdatamodeld */,
 			);
 			path = Cinemy;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				DB6F29672A13D07B00447DFA /* APICaller.swift */,
 				DB6F29692A13D08500447DFA /* Constants.swift */,
+				DBA9AF792A1E1BED00B2D859 /* DataPersistenceManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -243,6 +249,8 @@
 			files = (
 				DB6E55202A14C6640026D91D /* TitleTableViewCell.swift in Sources */,
 				DB6F29522A137AD600447DFA /* UpcomingViewController.swift in Sources */,
+				DBA9AF782A1E190700B2D859 /* CinemyModel.xcdatamodeld in Sources */,
+				DBA9AF7A2A1E1BED00B2D859 /* DataPersistenceManager.swift in Sources */,
 				DB6F29502A137ACC00447DFA /* SearchViewController.swift in Sources */,
 				DB6F29652A13D04B00447DFA /* Title.swift in Sources */,
 				DB6F295A2A1386F100447DFA /* CollectionViewTableViewCell.swift in Sources */,
@@ -489,6 +497,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		DBA9AF762A1E190700B2D859 /* CinemyModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DBA9AF772A1E190700B2D859 /* CinemyModel.xcdatamodel */,
+			);
+			currentVersion = DBA9AF772A1E190700B2D859 /* CinemyModel.xcdatamodel */;
+			path = CinemyModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB00D1A22A1272CE006E0AE4 /* Project object */;
 }
