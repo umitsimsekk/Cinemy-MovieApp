@@ -4,9 +4,13 @@ Home     |  Download Movie
 :-------------------------:|:-------------------------:
 <img alt="Home" src="Screenshot/home.png">|<img alt="Download Movie" src="Screenshot/downloadmovie.png">
 
-Movie Preview     |  Product Details
+Movie Preview     |  Coming Soon
 :-------------------------:|:-------------------------:
 <img alt="Movie Preview " src="Screenshot/moviepreview.png">|<img alt="Coming Soon" src="Screenshot/comingsoon.png">
+
+Top Search    |  Search Movies
+:-------------------------:|:-------------------------:
+<img alt="op Search" src="Screenshot/topsearch.png">|<img alt="Search Movies" src="Screenshot/searchmovies.png">
 
 ## Characteristics
 
@@ -15,10 +19,9 @@ Movie Preview     |  Product Details
 - [x] Singleton Design Pattern
 - [x] URLSession - Generic Api calls - Networking API
 - [x] Decodable Protocol with JSONDecoder
-- [x] Downloading Image - Kingfisher Library
+- [x] Downloading Image - SDWebImage Library
 - [x] Swift Package Manager - SPM
 - [x] Closure, Completion, Enum
-- [x] Inheritance - Final Keyword, Init()
 - [x] Memory Management
 
 ## Social Media
