@@ -28,6 +28,10 @@ class DownloadsViewController: UIViewController {
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         setDownloadTableViewDelegates()
         fetchData()
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
+            self.fetchData()
+        }
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -90,6 +94,28 @@ extension DownloadsViewController : UITableViewDelegate , UITableViewDataSource 
             }
         default:
             break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let title = titles[indexPath.row]
+        guard let titleName = title.original_title ?? title.original_name else {
+            return
+        }
+        APICaller.shared.getMovie(with: titleName) {[weak self] result in
+            switch result {
+            case .success(let videoElement):
+                DispatchQueue.main.async {
+                    let vc = TitlePreviewViewController()
+                    let titlePreviewViewModel = TitlePreviewViewModel(overview:title.overview ?? "" , title: titleName, youtubeView: videoElement)
+                    vc.configureTitlePreviewVC(with: titlePreviewViewModel)
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            case .failure(let error):
+                print(error)
+                
+            }
         }
     }
 }

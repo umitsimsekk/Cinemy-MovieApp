@@ -20,7 +20,9 @@ class UpcomingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .yellow
-        
+        title = "Coming soon"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(upcomingTableView)
         setTableViewDelegates()
         fetchData()
