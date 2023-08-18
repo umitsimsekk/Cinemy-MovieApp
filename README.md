@@ -1,4 +1,4 @@
-# Programmatic - MVVM (Model View ViewModel) -  API Calls
+# Programmatic - API Calls
 
 Home     |  Coming Soon | Top Search | Downloads
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
@@ -12,7 +12,6 @@ Download Movie |  Movie Preview | Search Movie
 ## Characteristics
 
 - [x] UIKit
-- [x] MVVM architecture
 - [x] Singleton Design Pattern
 - [x] URLSession - Generic Api calls - Networking API
 - [x] Decodable Protocol with JSONDecoder
